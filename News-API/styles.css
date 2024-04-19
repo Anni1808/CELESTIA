@@ -1,0 +1,94 @@
+/* Complete CSS for Space News */
+
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    /* background-color: #f3f3f3; */
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px; /* Increased padding for better spacing */
+    background-color: #383838;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgb(255, 255, 255); 
+  }
+  
+  h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 36px; /* Larger font size for better visual impact */
+    margin-bottom: 30px; /* Increased margin for better spacing */
+  }
+  
+  /* News item styles */
+  .news-item {
+    margin-bottom: 30px; /* Increased margin for better spacing */
+    padding: 20px;
+    background-color: #414040;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .news-item h2 {
+    margin-bottom: 15px; /* Increased margin for better spacing */
+    color: #fdfdfd;
+    font-size: 24px; /* Larger font size for better readability */
+  }
+  
+  .news-item p {
+    margin-top: 0;
+    color: #fbfbfb;
+    line-height: 1.6; /* Increased line height for better readability */
+  }
+  
+  .news-item img {
+    display: block;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Increased box shadow for better depth */
+    max-width: 100%; /* Ensure images don't overflow */
+  }
+  
+  /* Hover effect on news items */
+  .news-item:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+  }
+  
+  /* Additional hover effect on news item title */
+  .news-item h2:hover {
+    color: #007bff; /* Change to your preferred hover color */
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 600px) {
+    .container {
+      padding: 20px; /* Adjusted padding for smaller screens */
+    }
+  
+    h1 {
+      font-size: 28px; /* Adjusted font size for smaller screens */
+      margin-bottom: 20px; /* Adjusted margin for smaller screens */
+    }
+  
+    .news-item {
+      margin-bottom: 20px; /* Adjusted margin for smaller screens */
+    }
+  
+    .news-item h2 {
+      font-size: 20px; /* Adjusted font size for smaller screens */
+      margin-bottom: 10px; /* Adjusted margin for smaller screens */
+    }
+  
+    .news-item p {
+      line-height: 1.5; /* Adjusted line height for smaller screens */
+    }
+  }
+  

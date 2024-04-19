@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="css/mdb.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Start your project here-->
+
+  <div class="container my-5">
+    <label for="wrapper-date" class="form-label">Enter a date</label>
+    <div id="date-picker" class="form-outline datepicker mb-4" data-mdb-date-format="yyyy-mm-dd">
+      <input type="text" placeholder="YYYY-MM-DD" class="form-control" id="wrapper-date" data-mdb-toggle="datepicker" onkeypress="handleKeyPress(event)" />
+    </div>
+    <div class="row">
+      <div class="col-md-8 mb-4 mb-md-0">
+        <section id="wrapper-media" class=""></section>
+      </div>
+      <div class="col-md-4 mb-4 mb-md-0">
+        <h5 id="wrapper-title"></h5>
+        <p class="mb-2">Copyright: <span id="wrapper-copyright"></span></p>
+        <p id="wrapper-date"></p>
+        <p id="wrapper-explanation"></p>
+        <p id="wrapper-hdurl"></p>
+        <p id="wrapper-media_type"></p>
+        <p id="wrapper-title"></p>
+        <p id="wrapper-url"></p>
+      </div>
+    </div>
+  </div>
+  <!-- End your project here-->
+
+  <!-- MDB -->
+  <script type="text/javascript" src="js/mdb.umd.min.js"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+      const myDatepicker = document.getElementById("date-picker");
+      const dateInput = document.getElementById("wrapper-date");
+
+      myDatepicker.addEventListener("dateChange.mdb.datepicker", function () {
+        const selectedDate = dateInput.value;
+        nasaRequest(selectedDate);
+      });
+
+      // Initial call to nasaRequest to load content for the default date or any initial value
+      nasaRequest(dateInput.value);
+    });
+
+    function nasaRequest(selectedDate) {
+      let xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          let data = JSON.parse(this.responseText);
+          let copyright = data["copyright"];
+          let date = data["date"];
+          let explanation = data["explanation"];
+          let hdurl = data["hdurl"];
+          let media_type = data["media_type"];
+          let title = data["title"];
+          let url = data["url"];
+
+          let imageType =
+            `<div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-mdb-ripple-color="light">
+          <img id="wrapper-image" src="" class="w-100" alt="APOD" />
+          <a id="wrapper-hdurl" href="" target="_blank">
+          <div class="mask"></div>
+          </a>
+        </div>`;
+
+          let videoType =
+            `<div class="ratio ratio-16x9">
+          <iframe id="wrapper-video" src="" title="YouTube video" allowfullscreen></iframe>
+        </div>`;
+
+          document.getElementById("wrapper-title").innerHTML = title;
+          document.getElementById("wrapper-copyright").innerHTML = copyright;
+          document.getElementById("wrapper-explanation").innerHTML = explanation;
+
+          if (media_type === "video") {
+            document.getElementById("wrapper-media").innerHTML = videoType;
+            document.getElementById("wrapper-video").src = url;
+          } else {
+            document.getElementById("wrapper-media").innerHTML = imageType;
+            document.getElementById("wrapper-image").src = url;
+            document.getElementById("wrapper-hdurl").href = hdurl;
+          }
+        }
+      };
+      let queryUrl = "https://api.nasa.gov/planetary/apod?";
+      let queryKey = "api_key=DaFi4M1aSffvFg0EGzfCxWruc6FyhR7wStWMPtxf&";
+      let queryDate = "date=" + selectedDate + "&";
+
+      let queryFull = queryUrl + queryKey + queryDate;
+      xmlhttp.open("GET", queryFull, true);
+      xmlhttp.send();
+    }
+
+    function handleKeyPress(event) {
+      if (event.key === "Enter") {
+        const selectedDate = document.getElementById("wrapper-date").value;
+        nasaRequest(selectedDate);
+      }
+    }
+  </script>
+</body>
+
+</html>

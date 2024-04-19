@@ -1,0 +1,60 @@
+/* Form Container */
+.card {
+    width: 600px; 
+    margin: 100px auto; 
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7); 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+  .card-title{
+    font-size: 2rem;
+  }
+  /* Form */
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  /* Background Image */
+  body {
+    background-color: black;
+    background-image: url('img/i2.jpg'); 
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: rgba(0, 0, 0, 0.7) !important; 
+  }
+  
+  .navbar-brand,
+  .nav-link {
+    color: #fff !important; 
+  }
+  
+  /* Navbar Toggle Icon */
+  .navbar-toggler-icon {
+    background-color: #fff; 
+  }
+  
+  /* Navbar Toggle Button */
+  .navbar-toggler {
+    border-color: #fff; 
+  }
+  .navbar-nav .nav-link {
+    font-size: 1.2rem; /* Example: 20px */
+    color: #343a40; /* Dark gray font color */
+    margin-left: 10px; /* Add some space between links */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #212529; /* Slightly darker gray on hover */
+}
+  /* Alerts */
+  #error,
+  #success {
+    margin-top: 10px; /* Adjust top margin */
+  }

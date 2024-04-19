@@ -1,0 +1,94 @@
+/* Body styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image:url('img/NightSky.jpg');
+    /* background-color: #0a0a23; */ 
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgb(255, 255, 255); 
+  }
+  /* Form label */
+  .form-label {
+    font-weight: 500;
+    color: #fff;
+  }
+  
+  /* Date picker */
+  #date-picker {
+    margin-bottom: 30px;
+  }
+  
+  /* Date picker label */
+  #date-picker label {
+    color: #fff; /* White color for label */
+  }
+
+  #date-picker input {
+    color: #fff; /* White color for label */
+  }
+  
+  input[type=text]::placeholder {
+    color: rgb(242, 242, 242); /* Change this to the desired color */
+  }
+
+  /* Wrapper media */
+  #wrapper-media {
+    text-align: center;
+  }
+  
+  /* Photo styling */
+  #wrapper-media img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); /* White glow */
+    border: 2px solid #cfcaca; /* White border */
+  }
+  
+  /* Text styling */
+  #wrapper-title,
+  #wrapper-explanation,
+  #wrapper-copyright {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* Semi-transparent white border */
+    padding-bottom: 10px;
+    color: #fff; /* White color for text */
+  }
+  
+  /* Date picker form control */
+  #date-picker .form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #cfcaca;/* White border */
+    border-radius: 5px;
+    font-size: 16px;
+    color: #000; /* Black color for text */
+    background-color: rgba(243, 240, 240, 0.1); /* Semi-transparent white background */
+  }
+  
+  /* Date picker form control focus */
+  #date-picker .form-control:focus {
+    outline: none;
+    border-color: #e4b0cb; /* Focus border color */
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus box shadow */
+  }
+  
+  /* Footer styling */
+  footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px 0;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+    color: #fff;
+    border-radius: 0 0 20px 20px;
+  }
